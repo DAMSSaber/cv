@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saber DAMS — Senior Backend Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #1a56db;
+      --accent-light: #e8f0fd;
+      --dark: #0f1623;
+      --mid: #374151;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --tag-bg: #f0f4ff;
+      --tag-color: #2d4bb4;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--mid);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 960px;
+      margin: 40px auto;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      background: linear-gradient(135deg, #0f1623 0%, #1a2a4a 60%, #1a56db 100%);
+      color: white;
+      padding: 48px 48px 40px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .hero-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: -1px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero-text .role {
+      font-size: 15px;
+      font-weight: 500;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+    }
+
+    .hero-contacts a,
+    .hero-contacts span {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .hero-contacts a:hover { color: white; }
+
+    .hero-contacts .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #60a5fa;
+      flex-shrink: 0;
+    }
+
+    /* ── BODY LAYOUT ── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+    }
+
+    /* ── MAIN COLUMN ── */
+    .main {
+      padding: 40px 40px 40px 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      padding: 40px 32px;
+      background: var(--bg);
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 38px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 14px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── PROFILE ── */
+    .profile-text {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ── EXPERIENCE ── */
+    .job { margin-bottom: 28px; position: relative; padding-left: 20px; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: -18px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .job:last-child::before { display: none; }
+
+    .job::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent-light);
+    }
+
+    .job-header {
+      margin-bottom: 6px;
+    }
+
+    .job-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .job-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .job-company {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .job-sep { color: var(--muted); }
+
+    .job-period {
+      color: var(--muted);
+      font-size: 12px;
+      background: var(--bg);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .job-bullets {
+      margin-top: 10px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .job-bullets li {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.6;
+      display: flex;
+      gap: 10px;
+    }
+
+    .job-bullets li::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 11px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 18px; }
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .edu-school {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .edu-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 18px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #c7d7f8;
+    }
+
+    .tag.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* ── LANGUAGES ── */
+    .lang-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .lang-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .lang-level {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .lang-dot.filled { background: var(--accent); }
+
+    /* ── SIDEBAR SECTION TITLE ── */
+    .sidebar .section-title {
+      font-size: 10.5px;
+    }
+
+    /* ── HOBBIES ── */
+    .hobby-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hobby-tag {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--mid);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; border-radius: 0; max-width: 100%; }
+    }
+
+    @media (max-width: 700px) {
+      .body { grid-template-columns: 1fr; }
+      .main { border-right: none; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+      .sidebar { padding: 28px 24px; }
+      .hero { flex-direction: column; padding: 32px 24px; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <header class="hero">
+    <div class="hero-avatar">SD</div>
+    <div class="hero-text">
+      <h1>Saber DAMS</h1>
+      <div class="role">Senior Backend Developer &nbsp;·&nbsp; Golang</div>
+      <div class="hero-contacts">
+        <span><span class="dot"></span>Colombes, France (92700)</span>
+        <a href="tel:+33698177128"><span class="dot"></span>+33 6 98 17 71 28</a>
+        <a href="mailto:saber_dams@live.com"><span class="dot"></span>saber_dams@live.com</a>
+        <a href="https://bit.ly/saber-dams" target="_blank"><span class="dot"></span>linkedin.com/in/saber-dams</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY ══ -->
+  <div class="body">
+
+    <!-- ══ MAIN ══ -->
+    <main class="main">
+
+      <!-- Profile -->
+      <section class="section">
+        <h2 class="section-title">Profile</h2>
+        <p class="profile-text">
+          Senior Backend Developer with <strong>8+ years of experience</strong> designing and scaling distributed systems, microservices architectures, and high-throughput data pipelines. Deep expertise in <strong>Golang</strong>, cloud-native infrastructure (GCP, Kubernetes), and Domain-Driven Design. Proven track record of leading architectural redesigns, mentoring engineering teams, and driving technical decisions from concept through production. Passionate about clean code, observability, and building reliable systems at scale.
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section class="section">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Senior Backend Developer</div>
+            <div class="job-meta">
+              <span class="job-company">Heex Technologies</span>
+              <span class="job-sep">·</span>
+              <span>Paris, France</span>
+              <span class="job-period">Jan 2024 — Present</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Spearheaded a full redesign of the backend architecture, transitioning to a scalable microservices model using <strong>Golang, MongoDB, Kubernetes, and ArgoCD</strong>.</li>
+            <li>Established Domain-Driven Design (DDD) principles as the team's standard, improving codebase clarity and long-term maintainability.</li>
+            <li>Drove key architectural decisions including GitLab CI/CD pipeline strategy, deployment topology, and cross-service communication patterns (gRPC, REST).</li>
+            <li>Collaborated closely with product and infrastructure teams to guarantee SLA compliance and high availability across all services.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Golang Tech Lead</div>
+            <div class="job-meta">
+              <span class="job-company">Bliink</span>
+              <span class="job-sep">·</span>
+              <span>Paris, France</span>
+              <span class="job-period">Mar 2022 — Jan 2023</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Owned technical roadmap for multiple concurrent backend projects, balancing delivery pace with code quality and scalability goals.</li>
+            <li>Mentored 4+ engineers through structured code reviews, pair programming sessions, and best-practice documentation.</li>
+            <li>Enforced standards for writing scalable, testable, and easily maintainable Go code — reducing production incidents by raising engineering quality benchmarks.</li>
+            <li>Coordinated with external partners and cross-functional teams to design, troubleshoot, and ship critical product features on time.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Backend Developer</div>
+            <div class="job-meta">
+              <span class="job-company">Bliink</span>
+              <span class="job-sep">·</span>
+              <span>Paris, France</span>
+              <span class="job-period">Feb 2018 — Feb 2022</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Designed and deployed <strong>Golang microservices</strong> on Google Cloud Platform (GKE, Cloud Run, PubSub, BigQuery), handling millions of ad impressions daily.</li>
+            <li>Built custom real-time data pipelines using <strong>Apache Beam / Google Dataflow</strong>, enabling advanced advertising performance analytics at scale.</li>
+            <li>Developed REST APIs using Go, Node.js, and Yii framework; integrated with third-party ad networks and DSPs.</li>
+            <li>Engineered native advertising SDKs for <strong>Android and iOS</strong> platforms, fully deployed to production.</li>
+            <li>Designed and maintained <strong>GitLab CI/CD pipelines</strong>; ensured continuous integration and zero-downtime deployments across environments.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Mobile Developer</div>
+            <div class="job-meta">
+              <span class="job-company">Mobvalue</span>
+              <span class="job-sep">·</span>
+              <span>Paris, France</span>
+              <span class="job-period">Dec 2015 — Feb 2018</span>
+            </div>
+          </div>
+          <ul class="job-bullets">
+            <li>Developed and maintained mobile applications for Android and iOS platforms (Java / Swift).</li>
+            <li>Collaborated with product teams to translate business requirements into reliable, user-friendly mobile features.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+
+        <div class="edu-item">
+          <div class="edu-degree">Master's Degree — Mobile Application Development</div>
+          <div class="edu-school">L'École Multimédia, Paris</div>
+          <div class="edu-period">Nov 2014 — Dec 2015</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Master's Degree — Embedded Systems &amp; Mobile Engineering</div>
+          <div class="edu-school">Université Picardie Jules Verne (INSSET), Amiens</div>
+          <div class="edu-period">Sep 2012 — Oct 2014</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside class="sidebar">
+
+      <!-- Core Skills -->
+      <section class="section">
+        <h2 class="section-title">Core Skills</h2>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Languages</div>
+          <div class="skill-tags">
+            <span class="tag primary">Golang</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PHP</span>
+            <span class="tag">Java</span>
+            <span class="tag">Swift</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Cloud &amp; Infrastructure</div>
+          <div class="skill-tags">
+            <span class="tag primary">Kubernetes</span>
+            <span class="tag primary">GCP</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">Dataflow</span>
+            <span class="tag">PubSub</span>
+            <span class="tag">Cloud Run</span>
+            <span class="tag">Cloud Functions</span>
+            <span class="tag">ArgoCD</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Architecture &amp; APIs</div>
+          <div class="skill-tags">
+            <span class="tag">Microservices</span>
+            <span class="tag">DDD</span>
+            <span class="tag">TDD</span>
+            <span class="tag">REST</span>
+            <span class="tag">gRPC</span>
+            <span class="tag">GraphQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Databases</div>
+          <div class="skill-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Messaging &amp; Streaming</div>
+          <div class="skill-tags">
+            <span class="tag">Kafka</span>
+            <span class="tag">PubSub</span>
+            <span class="tag">Apache Beam</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">DevOps &amp; Tooling</div>
+          <div class="skill-tags">
+            <span class="tag">GitLab CI/CD</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Mobile</div>
+          <div class="skill-tags">
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section">
+        <h2 class="section-title">Languages</h2>
+
+        <div class="lang-item">
+          <span class="lang-name">French</span>
+          <div class="lang-level">
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <div class="lang-level">
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <span class="lang-name">Arabic</span>
+          <div class="lang-level">
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interests -->
+      <section class="section">
+        <h2 class="section-title">Interests</h2>
+        <div class="hobby-tags">
+          <span class="hobby-tag">🏋️ CrossFit</span>
+          <span class="hobby-tag">♟ Chess</span>
+          <span class="hobby-tag">✈️ Travel</span>
+          <span class="hobby-tag">🎣 Fishing</span>
+        </div>
+      </section>
+
+    </aside>
+  </div><!-- /body -->
+
+</div><!-- /page -->
+</body>
+</html>
