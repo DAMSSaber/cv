@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="en">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Saber DAMS — Senior Backend Developer</title>
+<title>SDAMS — Services IT · Backend, Cloud & Tech Leadership</title>
+<meta name="description" content="SDAMS — Expertise IT sur mesure : développement backend Golang, architecture cloud-native, conseil & tech leadership."/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET ── */
@@ -344,24 +345,58 @@ hr.divider {
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--r);
-  padding: 24px 28px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 26px 30px;
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
 }
-.tl-card:hover { border-color: var(--border-mid); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
-.tl-head { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
-.tl-role { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
+.tl-card:hover {
+  border-color: var(--border-mid);
+  box-shadow: 0 6px 28px rgba(15,23,42,.08);
+  transform: translateY(-2px);
+}
+.tl-head {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: space-between; align-items: flex-start;
+  margin-bottom: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border);
+}
+.tl-role {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px; font-weight: 800;
+  letter-spacing: -0.5px; color: var(--text);
+  margin-bottom: 4px;
+}
 .tl-period {
-  font-size: 11.5px; font-weight: 600;
-  padding: 3px 11px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .3px;
+  padding: 4px 12px; border-radius: 999px;
   background: var(--tag-bg); border: 1px solid var(--tag-border);
-  color: var(--text-3); white-space: nowrap;
+  color: var(--tag-text); white-space: nowrap;
 }
-.tl-period.current { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
-.tl-company { font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 14px; }
-.tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.tl-bullets li { display: flex; gap: 10px; font-size: 13.5px; color: var(--text-2); line-height: 1.6; }
+.tl-period.current { background: #ecfdf5; border-color: #a7f3d0; color: #047857; }
+.tl-company {
+  font-size: 13px; font-weight: 600; color: var(--text-2);
+}
+.tl-bullets {
+  margin-top: 16px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tl-bullets li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.65;
+}
 .tl-bullets li::before {
-  content: '–'; color: var(--text-3); flex-shrink: 0; margin-top: 1px;
+  content: '–';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--text-3);
+  line-height: 1.65;
 }
 .tl-bullets li strong { color: var(--text); font-weight: 600; }
 .tl-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
@@ -471,20 +506,20 @@ html.fr [data-flex-fr] { display: inline-flex; }
 </style>
 </head>
 <body>
-<html class="en">
 
 <!-- ══ NAV ══ -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="#home" class="nav-logo">
       <span class="nav-logo-mark">SD</span>
-      Saber DAMS
+      SDAMS
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#home"       class="active" data-en="About"      data-fr="Profil">About</a></li>
-      <li><a href="#skills"               data-en="Skills"     data-fr="Compétences">Skills</a></li>
-      <li><a href="#experience"           data-en="Experience" data-fr="Expérience">Experience</a></li>
-      <li><a href="#education"            data-en="Education"  data-fr="Formation">Education</a></li>
+      <li><a href="#home"      class="active" data-en="Home"        data-fr="Accueil">Home</a></li>
+      <li><a href="#services"               data-en="Services"    data-fr="Services">Services</a></li>
+      <li><a href="#references"             data-en="References"  data-fr="Références">References</a></li>
+      <li><a href="#founder"                data-en="Founder"     data-fr="Fondateur">Founder</a></li>
+      <li><a href="saber_dams_cv.html"      data-en="CV"          data-fr="CV">CV</a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-pill">
@@ -506,45 +541,42 @@ html.fr [data-flex-fr] { display: inline-flex; }
     <div class="reveal">
       <div class="hero-eyebrow">
         <span class="hero-eyebrow-dot"></span>
-        <span data-inline="en">Open to new opportunities</span>
-        <span data-inline="fr">Disponible pour de nouvelles opportunités</span>
+        <span data-inline="en">Available for new engagements</span>
+        <span data-inline="fr">Disponible pour de nouvelles missions</span>
       </div>
-      <h1 class="hero-name">Saber<br/>DAMS</h1>
+      <h1 class="hero-name">SDAMS</h1>
       <p class="hero-desc" data-lang="en">
-        Senior Backend Engineer with <strong>8+ years of experience</strong> designing high-throughput distributed systems. Expert in <strong>Golang</strong>, cloud-native architecture, and microservices — from redesign to production at scale.
+        Boutique IT services firm focused on <strong>backend engineering</strong>, <strong>cloud-native infrastructure</strong> and <strong>tech leadership</strong>. We help scale-ups and product teams design, build and operate systems that hold up at scale.
       </p>
       <p class="hero-desc" data-lang="fr">
-        Ingénieur Backend Senior avec <strong>8+ ans d'expérience</strong> dans la conception de systèmes distribués haute performance. Expert en <strong>Golang</strong>, architecture cloud-native et microservices — de la conception à la production à grande échelle.
+        Société de services IT spécialisée en <strong>développement backend</strong>, <strong>infrastructure cloud-native</strong> et <strong>tech leadership</strong>. Nous aidons les scale-ups et équipes produit à concevoir, livrer et opérer des systèmes qui tiennent à l'échelle.
       </p>
       <div class="hero-btns">
-        <a class="btn btn-dark" href="#experience">
-          <span data-inline="en">View Experience</span>
-          <span data-inline="fr">Voir l'Expérience</span>
+        <a class="btn btn-dark" href="#services">
+          <span data-inline="en">Our Services</span>
+          <span data-inline="fr">Nos Services</span>
         </a>
-        <a class="btn btn-outline" href="saber_dams_cv_en.pdf" download data-flex-en>
-          ↓ <span>Download CV</span>
-        </a>
-        <a class="btn btn-outline" href="saber_dams_cv_fr.pdf" download data-flex-fr>
-          ↓ <span>Télécharger CV</span>
+        <a class="btn btn-outline" href="#contact">
+          ✉ <span data-inline="en">Get in touch</span><span data-inline="fr">Nous contacter</span>
         </a>
       </div>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-n">8+</span>
-          <span class="stat-l" data-inline="en">Years exp.</span>
-          <span class="stat-l" data-inline="fr">Ans exp.</span>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-n">4</span>
-          <span class="stat-l" data-inline="en">Companies</span>
-          <span class="stat-l" data-inline="fr">Entreprises</span>
+          <span class="stat-l" data-inline="en">Years building</span>
+          <span class="stat-l" data-inline="fr">Ans d'expertise</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <span class="stat-n">3</span>
-          <span class="stat-l" data-inline="en">Languages</span>
-          <span class="stat-l" data-inline="fr">Langues</span>
+          <span class="stat-l" data-inline="en">Core services</span>
+          <span class="stat-l" data-inline="fr">Pôles d'expertise</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-n">99.9%</span>
+          <span class="stat-l" data-inline="en">SLA delivered</span>
+          <span class="stat-l" data-inline="fr">SLA délivrés</span>
         </div>
       </div>
     </div>
@@ -558,98 +590,109 @@ html.fr [data-flex-fr] { display: inline-flex; }
 
 <hr class="divider"/>
 
-<!-- ══ SKILLS ══ -->
-<div class="section-full" id="skills">
+<!-- ══ SERVICES ══ -->
+<div class="section-full" id="services">
   <div class="section-full-inner">
     <div class="reveal">
-      <p class="eyebrow" data-inline="en">What I bring</p>
-      <p class="eyebrow" data-inline="fr">Ce que j'apporte</p>
-      <h2 class="title">Technical <em>Arsenal</em></h2>
+      <p class="eyebrow" data-inline="en">What we deliver</p>
+      <p class="eyebrow" data-inline="fr">Notre offre</p>
+      <h2 class="title" data-lang="en">Three pillars, one <em>standard of excellence</em>.</h2>
+      <h2 class="title" data-lang="fr">Trois pôles, une seule <em>exigence d'excellence</em>.</h2>
     </div>
     <div class="skill-grid">
 
-      <!-- Languages wide -->
+      <!-- Backend Engineering -->
       <div class="skill-card wide reveal">
-        <span class="skill-card-icon">⌨️</span>
-        <div class="skill-card-title" data-inline="en">Languages & Core Stack</div>
-        <div class="skill-card-title" data-inline="fr">Langages & Stack Principal</div>
-        <div class="tag-row" style="margin-bottom:16px">
+        <span class="skill-card-icon">⚙️</span>
+        <div class="skill-card-title" data-inline="en">Backend Engineering · Golang</div>
+        <div class="skill-card-title" data-inline="fr">Développement Backend · Golang</div>
+        <p class="profile-text" data-lang="en" style="font-size:13.5px;color:var(--text-2);margin-bottom:14px;line-height:1.65;">
+          Production-grade microservices, APIs and high-throughput data pipelines. We architect for scale from day one — clean code, full test coverage, observability built in.
+        </p>
+        <p class="profile-text" data-lang="fr" style="font-size:13.5px;color:var(--text-2);margin-bottom:14px;line-height:1.65;">
+          Microservices, APIs et pipelines de données à haute volumétrie, en qualité de production. Une architecture pensée pour passer à l'échelle dès le jour 1 — code propre, tests, observabilité native.
+        </p>
+        <div class="tag-row" style="margin-bottom:14px">
           <span class="tag key">Golang</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">REST · gRPC</span>
+          <span class="tag">DDD · TDD</span>
           <span class="tag">Node.js</span>
-          <span class="tag">PHP</span>
-          <span class="tag">Java</span>
-          <span class="tag">Swift</span>
         </div>
         <div class="skill-bar-wrap">
           <div class="skill-bar-row">
-            <div class="skill-bar-label"><span>Golang</span><strong>Expert · 8 yrs</strong></div>
+            <div class="skill-bar-label"><span>Golang</span><strong data-inline="en">Expert · 8+ yrs</strong><strong data-inline="fr">Expert · 8+ ans</strong></div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width:96%"></div></div>
           </div>
           <div class="skill-bar-row">
-            <div class="skill-bar-label"><span>Node.js / PHP</span><strong>Advanced</strong></div>
-            <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+            <div class="skill-bar-label"><span>Microservices · DDD</span><strong data-inline="en">Senior</strong><strong data-inline="fr">Senior</strong></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
           </div>
           <div class="skill-bar-row">
-            <div class="skill-bar-label"><span>Java / Swift</span><strong>Proficient</strong></div>
-            <div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div>
+            <div class="skill-bar-label"><span>APIs gRPC / REST</span><strong data-inline="en">Advanced</strong><strong data-inline="fr">Avancé</strong></div>
+            <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
           </div>
         </div>
       </div>
 
-      <!-- Cloud -->
+      <!-- Cloud & DevOps -->
       <div class="skill-card reveal" style="transition-delay:.08s">
         <span class="skill-card-icon">☁️</span>
-        <div class="skill-card-title">Cloud & Infra</div>
+        <div class="skill-card-title" data-inline="en">Cloud & DevOps</div>
+        <div class="skill-card-title" data-inline="fr">Cloud & DevOps</div>
+        <p class="profile-text" data-lang="en" style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6;">
+          Cloud-native architecture on GCP, Kubernetes orchestration, CI/CD pipelines and zero-downtime deployments.
+        </p>
+        <p class="profile-text" data-lang="fr" style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6;">
+          Architecture cloud-native sur GCP, orchestration Kubernetes, pipelines CI/CD et déploiements sans interruption.
+        </p>
         <span class="skill-cat-label">Google Cloud Platform</span>
         <div class="tag-row" style="margin-bottom:10px">
           <span class="tag key">GCP</span>
           <span class="tag">GKE</span>
           <span class="tag">BigQuery</span>
           <span class="tag">Dataflow</span>
-          <span class="tag">Cloud Run</span>
           <span class="tag">PubSub</span>
         </div>
-        <span class="skill-cat-label">Orchestration</span>
+        <span class="skill-cat-label" data-inline="en">Orchestration & IaC</span>
+        <span class="skill-cat-label" data-inline="fr">Orchestration & IaC</span>
         <div class="tag-row">
           <span class="tag">Kubernetes</span>
           <span class="tag">ArgoCD</span>
           <span class="tag">Terraform</span>
           <span class="tag">Docker</span>
+          <span class="tag">GitLab CI/CD</span>
         </div>
       </div>
 
-      <!-- Data -->
+      <!-- Tech Leadership -->
       <div class="skill-card reveal" style="transition-delay:.12s">
-        <span class="skill-card-icon">🗄️</span>
-        <div class="skill-card-title" data-inline="en">Data & Messaging</div>
-        <div class="skill-card-title" data-inline="fr">Données & Messaging</div>
-        <span class="skill-cat-label" data-inline="en">Databases</span>
-        <span class="skill-cat-label" data-inline="fr">Bases de données</span>
+        <span class="skill-card-icon">🧭</span>
+        <div class="skill-card-title" data-inline="en">Consulting & Tech Leadership</div>
+        <div class="skill-card-title" data-inline="fr">Conseil & Tech Leadership</div>
+        <p class="profile-text" data-lang="en" style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6;">
+          Architectural audits, hiring support, code reviews and structured mentoring to raise your team's engineering bar.
+        </p>
+        <p class="profile-text" data-lang="fr" style="font-size:13px;color:var(--text-2);margin-bottom:14px;line-height:1.6;">
+          Audits d'architecture, accompagnement au recrutement, revues de code et mentorat structuré pour faire monter votre équipe en gamme.
+        </p>
+        <span class="skill-cat-label" data-inline="en">Engagements</span>
+        <span class="skill-cat-label" data-inline="fr">Missions</span>
         <div class="tag-row" style="margin-bottom:10px">
-          <span class="tag">MongoDB</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">SQLite</span>
+          <span class="tag key" data-inline="en">Architecture Audit</span>
+          <span class="tag key" data-inline="fr">Audit Archi.</span>
+          <span class="tag" data-inline="en">Tech Lead</span>
+          <span class="tag" data-inline="fr">Tech Lead</span>
+          <span class="tag" data-inline="en">Mentoring</span>
+          <span class="tag" data-inline="fr">Mentorat</span>
         </div>
-        <span class="skill-cat-label">Streaming</span>
+        <span class="skill-cat-label" data-inline="en">Methods</span>
+        <span class="skill-cat-label" data-inline="fr">Méthodes</span>
         <div class="tag-row">
-          <span class="tag">Kafka</span>
-          <span class="tag">PubSub</span>
-          <span class="tag">Apache Beam</span>
-        </div>
-      </div>
-
-      <!-- Architecture -->
-      <div class="skill-card wide reveal" style="transition-delay:.06s">
-        <span class="skill-card-icon">🏗️</span>
-        <div class="skill-card-title">Architecture & APIs</div>
-        <div class="tool-grid">
-          <div class="tool-item"><span class="tool-dot"></span><span>Microservices</span></div>
-          <div class="tool-item"><span class="tool-dot"></span><span>Domain-Driven Design</span></div>
-          <div class="tool-item"><span class="tool-dot"></span><span>REST · gRPC · GraphQL</span></div>
-          <div class="tool-item"><span class="tool-dot"></span><span>TDD · Clean Architecture</span></div>
-          <div class="tool-item"><span class="tool-dot"></span><span>GitLab CI/CD</span></div>
-          <div class="tool-item"><span class="tool-dot"></span><span>Android · iOS</span></div>
+          <span class="tag">DDD</span>
+          <span class="tag">Clean Architecture</span>
+          <span class="tag" data-inline="en">Code Review</span>
+          <span class="tag" data-inline="fr">Code Review</span>
         </div>
       </div>
 
@@ -659,16 +702,17 @@ html.fr [data-flex-fr] { display: inline-flex; }
 
 <hr class="divider"/>
 
-<!-- ══ EXPERIENCE ══ -->
-<section class="section" id="experience">
+<!-- ══ REFERENCES ══ -->
+<section class="section" id="references">
   <div class="reveal">
-    <p class="eyebrow" data-inline="en">Career path</p>
-    <p class="eyebrow" data-inline="fr">Parcours professionnel</p>
-    <h2 class="title">Engineering <em>Journey</em></h2>
+    <p class="eyebrow" data-inline="en">Selected engagements</p>
+    <p class="eyebrow" data-inline="fr">Missions sélectionnées</p>
+    <h2 class="title" data-lang="en">Track record &amp; <em>references</em></h2>
+    <h2 class="title" data-lang="fr">Réalisations &amp; <em>références</em></h2>
   </div>
   <div class="timeline">
 
-    <!-- Heex -->
+    <!-- SDAMS founded -->
     <div class="tl-item reveal">
       <div class="tl-left">
         <div class="tl-dot active"></div>
@@ -678,27 +722,66 @@ html.fr [data-flex-fr] { display: inline-flex; }
         <div class="tl-card">
           <div class="tl-head">
             <div>
-              <div class="tl-role" data-lang="en">Senior Backend Developer</div>
-              <div class="tl-role" data-lang="fr">Développeur Backend Senior</div>
-              <div class="tl-company">Heex Technologies · Paris</div>
+              <div class="tl-role" data-lang="en">SDAMS founded · Backend &amp; Cloud Consultancy</div>
+              <div class="tl-role" data-lang="fr">Création de SDAMS · Conseil Backend &amp; Cloud</div>
+              <div class="tl-company" data-lang="en">SDAMS · Paris, France</div>
+              <div class="tl-company" data-lang="fr">SDAMS · Paris, France</div>
             </div>
-            <span class="tl-period current" data-inline="en">Jan 2024 — Present</span>
-            <span class="tl-period current" data-inline="fr">Janv. 2024 — Présent</span>
+            <span class="tl-period current" data-inline="en">2024 — Present</span>
+            <span class="tl-period current" data-inline="fr">2024 — Présent</span>
           </div>
           <ul class="tl-bullets" data-lang="en">
-            <li>Spearheaded a full <strong>backend architectural redesign</strong> — migrating from a monolith to a scalable microservices platform with Golang, MongoDB, Kubernetes & ArgoCD, increasing release frequency by 3×.</li>
+            <li>Launched <strong>SDAMS</strong> to offer high-end backend, cloud and tech leadership services to scale-ups and product teams.</li>
+            <li>Engagements include architecture audits, microservices design, Kubernetes platforms and Tech Lead-as-a-Service missions.</li>
+            <li>Direct, principal-led delivery — every engagement is owned end-to-end by a senior engineer.</li>
+          </ul>
+          <ul class="tl-bullets" data-lang="fr">
+            <li>Lancement de <strong>SDAMS</strong> pour proposer des services backend, cloud et tech leadership haut de gamme aux scale-ups et équipes produit.</li>
+            <li>Interventions sur des audits d'architecture, conception microservices, plateformes Kubernetes et missions de Tech Lead-as-a-Service.</li>
+            <li>Livraison portée directement par un ingénieur senior, du cadrage à la mise en production.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag key" data-inline="en">Founder</span><span class="tag key" data-inline="fr">Fondateur</span><span class="tag">Golang</span><span class="tag">Cloud</span><span class="tag" data-inline="en">Tech Leadership</span><span class="tag" data-inline="fr">Tech Leadership</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heex -->
+    <div class="tl-item reveal">
+      <div class="tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="tl-role" data-lang="en">Senior Backend Engineer · Heex Technologies</div>
+              <div class="tl-role" data-lang="fr">Ingénieur Backend Senior · Heex Technologies</div>
+              <div class="tl-company">Heex Technologies · Paris</div>
+            </div>
+            <span class="tl-period" data-inline="en">Jan 2024 — Present</span>
+            <span class="tl-period" data-inline="fr">Janv. 2024 — Présent</span>
+          </div>
+          <ul class="tl-bullets" data-lang="en">
+            <li>Spearheaded a full <strong>backend architectural redesign</strong> — migrating from a monolith to a scalable microservices platform with Golang, MongoDB, Kubernetes &amp; ArgoCD.</li>
             <li>Championed <strong>Domain-Driven Design (DDD)</strong> as the team standard, reducing inter-service coupling and accelerating developer onboarding.</li>
-            <li>Defined GitLab CI/CD strategy, multi-environment deployment topology, and gRPC/REST contracts — enabling <strong>zero-downtime deployments</strong>.</li>
+            <li>Built and operated cloud workloads on <strong>AWS</strong>, with Kubernetes deployments orchestrated via ArgoCD across multiple environments.</li>
+            <li>Implemented end-to-end observability with <strong>OpenTelemetry</strong> — distributed tracing, metrics and structured logs across all services.</li>
+            <li>Defined GitLab CI/CD strategy and <strong>GraphQL / gRPC / REST</strong> API contracts — enabling <strong>zero-downtime deployments</strong>.</li>
             <li>Partnered with product and infra teams to enforce SLA compliance and maintain <strong>99.9% uptime</strong> across all services.</li>
           </ul>
           <ul class="tl-bullets" data-lang="fr">
-            <li>Piloté une <strong>refonte architecturale complète</strong> du backend — migration d'un monolithe vers une plateforme microservices scalable (Golang, MongoDB, Kubernetes, ArgoCD), multipliant la fréquence de livraison par 3.</li>
-            <li>Imposé le <strong>Domain-Driven Design (DDD)</strong> comme standard, réduisant le couplage inter-services et accélérant l'onboarding des développeurs.</li>
-            <li>Défini la stratégie CI/CD GitLab, la topologie multi-environnements et les contrats gRPC/REST — permettant des <strong>déploiements sans interruption</strong>.</li>
-            <li>Collaboration étroite avec les équipes produit et infra pour assurer la conformité SLA et maintenir une <strong>disponibilité à 99,9%</strong>.</li>
+            <li>Pilotage de la <strong>refonte architecturale complète</strong> du backend — migration d'un monolithe vers une plateforme microservices scalable (Golang, MongoDB, Kubernetes, ArgoCD).</li>
+            <li>Adoption du <strong>Domain-Driven Design (DDD)</strong> comme standard d'équipe, réduisant le couplage inter-services et accélérant l'onboarding des développeurs.</li>
+            <li>Construction et opération des workloads cloud sur <strong>AWS</strong>, avec déploiements Kubernetes orchestrés via ArgoCD sur plusieurs environnements.</li>
+            <li>Mise en place de l'observabilité de bout en bout avec <strong>OpenTelemetry</strong> — tracing distribué, métriques et logs structurés sur l'ensemble des services.</li>
+            <li>Définition de la stratégie CI/CD GitLab et des contrats d'API <strong>GraphQL / gRPC / REST</strong> — permettant des <strong>déploiements sans interruption</strong>.</li>
+            <li>Collaboration avec les équipes produit et infra pour assurer la conformité SLA et maintenir <strong>99,9% de disponibilité</strong>.</li>
           </ul>
           <div class="tl-tags">
-            <span class="tag key">Golang</span><span class="tag">MongoDB</span><span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">DDD</span><span class="tag">gRPC</span>
+            <span class="tag key">Golang</span><span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">OpenTelemetry</span><span class="tag">GraphQL</span><span class="tag">gRPC</span><span class="tag">DDD</span>
           </div>
         </div>
       </div>
@@ -727,9 +810,9 @@ html.fr [data-flex-fr] { display: inline-flex; }
             <li>Established Go best practices — scalable, testable, maintainable code — <strong>directly reducing production incidents</strong>.</li>
           </ul>
           <ul class="tl-bullets" data-lang="fr">
-            <li>Géré la feuille de route technique de <strong>plusieurs projets backend en parallèle</strong>, équilibrant délais et qualité.</li>
-            <li>Mentoré <strong>4+ développeurs</strong> via des revues de code structurées, du pair programming et de la documentation technique.</li>
-            <li>Établi les bonnes pratiques Go — code scalable, testable, maintenable — <strong>réduisant directement les incidents en production</strong>.</li>
+            <li>Pilotage de la feuille de route technique de <strong>plusieurs projets backend en parallèle</strong>, équilibrant délais et qualité.</li>
+            <li>Mentorat de <strong>4+ développeurs</strong> via revues de code structurées, pair programming et documentation technique.</li>
+            <li>Mise en place des bonnes pratiques Go — code scalable, testable, maintenable — <strong>réduisant directement les incidents en production</strong>.</li>
           </ul>
           <div class="tl-tags">
             <span class="tag key">Golang</span><span class="tag">Tech Leadership</span><span class="tag">Mentoring</span><span class="tag">Code Review</span>
@@ -810,32 +893,68 @@ html.fr [data-flex-fr] { display: inline-flex; }
 
 <hr class="divider"/>
 
-<!-- ══ EDUCATION ══ -->
-<div class="section-full" id="education">
+<!-- ══ FOUNDER / ABOUT ══ -->
+<div class="section-full" id="founder">
   <div class="section-full-inner">
     <div class="reveal">
-      <p class="eyebrow" data-inline="en">Academic background</p>
-      <p class="eyebrow" data-inline="fr">Parcours académique</p>
-      <h2 class="title"><span data-inline="en">Education</span><span data-inline="fr">Formation</span></h2>
+      <p class="eyebrow" data-inline="en">The person behind SDAMS</p>
+      <p class="eyebrow" data-inline="fr">L'humain derrière SDAMS</p>
+      <h2 class="title" data-lang="en">Founder &amp; <em>principal engineer</em></h2>
+      <h2 class="title" data-lang="fr">Fondateur &amp; <em>ingénieur principal</em></h2>
     </div>
-    <div class="edu-grid reveal">
-      <div class="edu-card">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-degree" data-lang="en">Master's — Mobile Application Development</div>
-        <div class="edu-degree" data-lang="fr">Master — Développement d'Applications Mobiles</div>
-        <div class="edu-school">L'École Multimédia, Paris</div>
-        <div class="edu-year" data-inline="en">Nov 2014 — Dec 2015</div>
-        <div class="edu-year" data-inline="fr">Nov. 2014 — Déc. 2015</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">📐</div>
-        <div class="edu-degree" data-lang="en">Master's — Embedded Systems & Mobile Engineering</div>
-        <div class="edu-degree" data-lang="fr">Master — Systèmes Embarqués & Ingénierie Mobile</div>
-        <div class="edu-school">Université Picardie Jules Verne (INSSET), Amiens</div>
-        <div class="edu-year" data-inline="en">Sep 2012 — Oct 2014</div>
-        <div class="edu-year" data-inline="fr">Sept. 2012 — Oct. 2014</div>
+
+    <div class="reveal" style="display:grid;grid-template-columns:1fr;gap:48px;align-items:start;">
+      <div>
+        <p class="profile-text" data-lang="en" style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:760px;margin-bottom:18px;">
+          <strong style="color:var(--text);">Saber DAMS</strong> founded SDAMS after 8+ years building distributed systems at the heart of high-traffic ad-tech and robotics platforms. From real-time pipelines processing millions of events daily, to full backend redesigns delivered with zero downtime — he has owned the work end-to-end as Senior Engineer, Tech Lead and architect.
+        </p>
+        <p class="profile-text" data-lang="en" style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:760px;margin-bottom:28px;">
+          SDAMS exists to bring that same level of seniority to your team — on a focused mission, an architecture audit, or a long-term Tech Lead engagement. No middlemen, no junior bait-and-switch.
+        </p>
+        <p class="profile-text" data-lang="fr" style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:760px;margin-bottom:18px;">
+          <strong style="color:var(--text);">Saber DAMS</strong> a créé SDAMS après 8+ ans à construire des systèmes distribués au cœur de plateformes ad-tech et robotique à fort trafic. Des pipelines temps réel traitant des millions d'événements par jour aux refontes backend complètes sans interruption — il a porté ces sujets de bout en bout comme ingénieur senior, tech lead et architecte.
+        </p>
+        <p class="profile-text" data-lang="fr" style="font-size:15px;line-height:1.75;color:var(--text-2);max-width:760px;margin-bottom:28px;">
+          SDAMS existe pour mettre cette séniorité directement au service de votre équipe — sur une mission ciblée, un audit d'architecture, ou un accompagnement Tech Lead longue durée. Sans intermédiaire, sans bait-and-switch junior.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;">
+          <a class="btn btn-dark" href="saber_dams_cv.html">
+            <span data-inline="en">View full CV</span><span data-inline="fr">Voir le CV complet</span>
+          </a>
+          <a class="btn btn-outline" href="saber_dams_cv_en.pdf" download data-flex-en>
+            ↓ <span>CV (EN, PDF)</span>
+          </a>
+          <a class="btn btn-outline" href="saber_dams_cv_fr.pdf" download data-flex-fr>
+            ↓ <span>CV (FR, PDF)</span>
+          </a>
+        </div>
       </div>
     </div>
+
+    <div class="reveal" style="margin-top:8px">
+      <p class="eyebrow" data-inline="en" style="margin-bottom:18px;">Background</p>
+      <p class="eyebrow" data-inline="fr" style="margin-bottom:18px;">Formation</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-degree" data-lang="en">Master's — Mobile Application Development</div>
+          <div class="edu-degree" data-lang="fr">Master — Développement d'Applications Mobiles</div>
+          <div class="edu-school">L'École Multimédia, Paris</div>
+          <div class="edu-year" data-inline="en">Nov 2014 — Dec 2015</div>
+          <div class="edu-year" data-inline="fr">Nov. 2014 — Déc. 2015</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📐</div>
+          <div class="edu-degree" data-lang="en">Master's — Embedded Systems &amp; Mobile Engineering</div>
+          <div class="edu-degree" data-lang="fr">Master — Systèmes Embarqués &amp; Ingénierie Mobile</div>
+          <div class="edu-school">Université Picardie Jules Verne (INSSET), Amiens</div>
+          <div class="edu-year" data-inline="en">Sep 2012 — Oct 2014</div>
+          <div class="edu-year" data-inline="fr">Sept. 2012 — Oct. 2014</div>
+        </div>
+      </div>
+    </div>
+
     <div class="lang-grid reveal" style="transition-delay:.1s">
       <div class="lang-item">
         <span class="lang-name" data-inline="en">French</span>
@@ -848,7 +967,8 @@ html.fr [data-flex-fr] { display: inline-flex; }
         <span class="lang-name" data-inline="en">English</span>
         <span class="lang-name" data-inline="fr">Anglais</span>
         <span class="lang-sep">·</span>
-        <span class="lang-level">Professional</span>
+        <span class="lang-level" data-inline="en">Professional</span>
+        <span class="lang-level" data-inline="fr">Professionnel</span>
       </div>
       <div class="lang-item">
         <span class="lang-name" data-inline="en">Arabic</span>
@@ -866,13 +986,18 @@ html.fr [data-flex-fr] { display: inline-flex; }
   <div class="contact-inner reveal">
     <p class="contact-eyebrow" data-inline="en">Let's build together</p>
     <p class="contact-eyebrow" data-inline="fr">Construisons ensemble</p>
-    <h2 class="contact-title" data-lang="en">Ready to take your<br/>backend to the next level?</h2>
-    <h2 class="contact-title" data-lang="fr">Prêt à amener votre<br/>backend au niveau supérieur ?</h2>
-    <p class="contact-sub" data-lang="en">Open to senior backend, tech lead & staff engineer roles. Always happy to talk Golang, distributed systems, or cloud architecture.</p>
-    <p class="contact-sub" data-lang="fr">Disponible pour des postes senior backend, tech lead ou staff engineer. Toujours partant pour discuter Golang, systèmes distribués ou architecture cloud.</p>
+    <h2 class="contact-title" data-lang="en">Ready to ship a backend<br/>that holds up at scale?</h2>
+    <h2 class="contact-title" data-lang="fr">Prêt à livrer un backend<br/>qui tient à l'échelle ?</h2>
+    <p class="contact-sub" data-lang="en">SDAMS partners with scale-ups and product teams on backend, cloud and tech leadership missions. Tell us about your project — we'll come back within 24h.</p>
+    <p class="contact-sub" data-lang="fr">SDAMS accompagne scale-ups et équipes produit sur des missions backend, cloud et tech leadership. Parlez-nous de votre projet — réponse sous 24h.</p>
     <div class="contact-btns">
       <a class="btn-inv" href="mailto:saber_dams@live.com">✉ saber_dams@live.com</a>
+      <a class="btn-inv" href="tel:+33698177128">☎ +33 6 98 17 71 28</a>
       <a class="btn-ghost" href="https://bit.ly/saber-dams" target="_blank">↗ LinkedIn</a>
+      <a class="btn-ghost" href="saber_dams_cv.html">
+        <span data-inline="en">📄 Founder's CV</span>
+        <span data-inline="fr">📄 CV du fondateur</span>
+      </a>
     </div>
   </div>
 </div>
@@ -880,12 +1005,14 @@ html.fr [data-flex-fr] { display: inline-flex; }
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-inner">
-    <span class="footer-logo">Saber DAMS</span>
+    <span class="footer-logo">SDAMS · Paris</span>
     <div class="footer-links">
+      <a href="#services" data-en="Services" data-fr="Services">Services</a>
+      <a href="#references" data-en="References" data-fr="Références">References</a>
+      <a href="saber_dams_cv.html" data-en="CV" data-fr="CV">CV</a>
       <a href="https://bit.ly/saber-dams" target="_blank">LinkedIn</a>
       <a href="mailto:saber_dams@live.com">Email</a>
-      <a href="saber_dams_cv_en.pdf" download data-lang="en">Download CV</a>
-      <a href="saber_dams_cv_fr.pdf" download data-lang="fr">Télécharger CV</a>
+      <a href="tel:+33698177128">+33 6 98 17 71 28</a>
     </div>
   </div>
 </footer>
