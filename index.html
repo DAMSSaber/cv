@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="en">
+<html lang="fr" class="fr">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -523,8 +523,8 @@ html.fr [data-flex-fr] { display: inline-flex; }
     </ul>
     <div class="nav-right">
       <div class="lang-pill">
-        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn"        id="btn-fr" onclick="setLang('fr')">FR</button>
+        <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
       </div>
       <a href="#contact" class="nav-cta">
         <span data-inline="en">Contact</span>
@@ -731,8 +731,8 @@ html.fr [data-flex-fr] { display: inline-flex; }
               <div class="tl-company" data-lang="en">SDAMS · Paris, France</div>
               <div class="tl-company" data-lang="fr">SDAMS · Paris, France</div>
             </div>
-            <span class="tl-period current" data-inline="en">2024 — Present</span>
-            <span class="tl-period current" data-inline="fr">2024 — Présent</span>
+            <span class="tl-period current" data-inline="en">2026 — Present</span>
+            <span class="tl-period current" data-inline="fr">2026 — Présent</span>
           </div>
           <ul class="tl-bullets" data-lang="en">
             <li>Launched <strong>SDAMS</strong> to offer high-end backend, cloud and tech leadership services to scale-ups and product teams.</li>
@@ -773,19 +773,19 @@ html.fr [data-flex-fr] { display: inline-flex; }
             <li>Championed <strong>Domain-Driven Design (DDD)</strong> as the team standard, reducing inter-service coupling and accelerating developer onboarding.</li>
             <li>Built and operated cloud workloads on <strong>AWS</strong>, with Kubernetes deployments orchestrated via ArgoCD across multiple environments.</li>
             <li>Implemented end-to-end observability with <strong>OpenTelemetry</strong> — distributed tracing, metrics and structured logs across all services.</li>
-            <li>Defined GitLab CI/CD strategy and <strong>GraphQL / gRPC / REST</strong> API contracts — enabling <strong>zero-downtime deployments</strong>.</li>
-            <li>Partnered with product and infra teams to enforce SLA compliance and maintain <strong>99.9% uptime</strong> across all services.</li>
+            <li>Built an internal <strong>Golang agent</strong> orchestrating calls to <strong>MCP</strong> (Model Context Protocol) tools — agentic LLM workflows that automate code generation, refactoring and engineering tasks.</li>
+            <li>Defined GitLab CI/CD strategy and <strong>GraphQL / gRPC / REST</strong> API contracts — enabling <strong>zero-downtime deployments</strong> and maintaining <strong>99.9% uptime</strong>.</li>
           </ul>
           <ul class="tl-bullets" data-lang="fr">
             <li>Pilotage de la <strong>refonte architecturale complète</strong> du backend — migration d'un monolithe vers une plateforme microservices scalable (Golang, MongoDB, Kubernetes, ArgoCD).</li>
             <li>Adoption du <strong>Domain-Driven Design (DDD)</strong> comme standard d'équipe, réduisant le couplage inter-services et accélérant l'onboarding des développeurs.</li>
             <li>Construction et opération des workloads cloud sur <strong>AWS</strong>, avec déploiements Kubernetes orchestrés via ArgoCD sur plusieurs environnements.</li>
             <li>Mise en place de l'observabilité de bout en bout avec <strong>OpenTelemetry</strong> — tracing distribué, métriques et logs structurés sur l'ensemble des services.</li>
-            <li>Définition de la stratégie CI/CD GitLab et des contrats d'API <strong>GraphQL / gRPC / REST</strong> — permettant des <strong>déploiements sans interruption</strong>.</li>
-            <li>Collaboration avec les équipes produit et infra pour assurer la conformité SLA et maintenir <strong>99,9% de disponibilité</strong>.</li>
+            <li>Conception d'un <strong>agent interne en Golang</strong> orchestrant des appels vers des outils <strong>MCP</strong> (Model Context Protocol) — workflows agentiques basés sur LLM qui automatisent la génération de code, le refactoring et les tâches d'ingénierie.</li>
+            <li>Définition de la stratégie CI/CD GitLab et des contrats d'API <strong>GraphQL / gRPC / REST</strong> — permettant des <strong>déploiements sans interruption</strong> et maintenant <strong>99,9% de disponibilité</strong>.</li>
           </ul>
           <div class="tl-tags">
-            <span class="tag key">Golang</span><span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">OpenTelemetry</span><span class="tag">GraphQL</span><span class="tag">gRPC</span><span class="tag">DDD</span>
+            <span class="tag key">Golang</span><span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">ArgoCD</span><span class="tag">OpenTelemetry</span><span class="tag">GraphQL</span><span class="tag">gRPC</span><span class="tag">MCP</span><span class="tag">DDD</span>
           </div>
         </div>
       </div>
@@ -1031,7 +1031,8 @@ html.fr [data-flex-fr] { display: inline-flex; }
       el.textContent = l === 'fr' ? el.dataset.fr : el.dataset.en;
     });
   }
-  document.documentElement.className = 'en';
+  // Default language: French
+  setLang('fr');
 
   // Scroll reveal
   const obs = new IntersectionObserver(entries => {
